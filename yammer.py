@@ -3,8 +3,8 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
-userName = 'anh.nv183479@sis.hust.edu.vn'
-passWord = 'vietanh2204'
+userName = ''
+passWord = ''
 
 
 driver = webdriver.Chrome(executable_path ='C:/Users/VietAnh/Downloads/chromedriver.exe')
