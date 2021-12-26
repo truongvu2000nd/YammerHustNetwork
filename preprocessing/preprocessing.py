@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import regex
 from underthesea import word_tokenize
+from pathlib import Path
 
 
 bang_nguyen_am = [['a', 'à', 'á', 'ả', 'ã', 'ạ', 'a'],
@@ -168,7 +169,7 @@ def remove_stopwords(text):
         source: https://www.kaggle.com/heeraldedhia/stop-words-in-28-languages/version/1?select=vietnamese.txt
     """
     stopword = set()
-    with open('stopword_vie.txt', 'r', encoding='UTF-8') as f:
+    with open(Path(__file__).parent / 'stopword_vie.txt', 'r', encoding='UTF-8') as f:
         data = f.readlines()
         for word in data:
             stopword.add(word.replace('\n', ""))
