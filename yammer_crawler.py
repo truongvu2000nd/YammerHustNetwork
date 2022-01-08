@@ -3,19 +3,26 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
 from time import sleep
-userName = ''
-passWord = ''
+import argparse
 
+parser = argparse.ArgumentParser(description='Yammer HUST crawler with Selenium')
+parser.add_argument('--username', default="", type=str, help='microsoft username')
+parser.add_argument('--password', default="", type=str, help='microsoft password')
+parser.add_argument('--driver_path', default="", type=str, help='chromedriver path')
 
-driver = webdriver.Chrome(executable_path ='C:/Users/VietAnh/Downloads/chromedriver.exe')
+args = parser.parse_args()
+
+userName = args.username
+passWord = args.password
+driver = webdriver.Chrome(executable_path = args.driver_path)
 
 driver.get("https://www.yammer.com/login?locale=en-US&locale_type=standard")
 
-driver.find_element_by_id( "login").send_keys(userName)
+driver.find_element_by_id("login").send_keys(userName)
 driver.find_element_by_id("password").click()
 driver.find_element_by_id("password").send_keys(passWord)
 sleep(10)
-driver.find_element_by_id( "userNameInput").send_keys(userName)
+driver.find_element_by_id("userNameInput").send_keys(userName)
 driver.find_element_by_id("passwordInput").send_keys(passWord)
 driver.find_element_by_id("submitButton").click()
 
